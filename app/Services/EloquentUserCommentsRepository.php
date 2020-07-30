@@ -16,7 +16,9 @@ class EloquentUserCommentsRepository implements UserCommentsRepositoryInterface
         $comments = WouchUser::find($userId)
             ->comments()
             ->with([
-                'post' => fn($query) => $query->whereHas('image')->withCount('comments')
+                'post' => fn($query) => $query->whereHas('image')
+                    ->with(['author' => fn($query) => $query->where('active', true)])
+                    ->withCount('comments')
             ])
             ->get();
 

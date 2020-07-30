@@ -19,7 +19,8 @@ class UsersController extends Controller
         $users = WouchUser::active()->with([
             'posts' => fn($query) => $query->whereNull('deleted_at')
                 ->withCount('comments') // Task 6.2
-                ->orderBy('comments_count', 'desc') // Task 6.3
+                ->orderBy('comments_count', 'desc'), // Task 6.3
+            'author' => fn($query) => $query->where('active', true),
         ])->when(
             $limit > 0 && is_int($limit),
             fn($query) => $query->limit($limit),
