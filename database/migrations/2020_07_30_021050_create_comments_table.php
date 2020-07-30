@@ -22,7 +22,7 @@ class CreateCommentsTable extends Migration
             $table->softDeletes();
 
             $table->foreign('user_id')
-                ->references('id')->on('users')
+                ->references('id')->on('wouch_users')
                 ->onDelete('cascade');
             $table->foreign('post_id')
                 ->references('id')->on('posts')

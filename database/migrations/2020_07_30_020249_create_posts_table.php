@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->softDeletes();
 
             $table->foreign('author_id')
-                ->references('id')->on('users')
+                ->references('id')->on('wouch_users')
                 ->onDelete('set null');
             $table->foreign('image_id')
                 ->references('id')->on('images')

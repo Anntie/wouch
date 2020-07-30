@@ -8,5 +8,5 @@ class Image extends Model
 {
     public $timestamps = false;
 
-    protected $fillable = ['path'];
+    protected $fillable = ['url'];
 }
