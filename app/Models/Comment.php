@@ -17,8 +17,8 @@ class Comment extends Model
         return $this->belongsTo(WouchUser::class);
     }
 
-    public function image(): BelongsTo
+    public function post(): BelongsTo
     {
-        return $this->belongsTo(Image::class);
+        return $this->belongsTo(Post::class);
     }
 }

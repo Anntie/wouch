@@ -13,6 +13,7 @@ class Post extends JsonResource
             'content' => $this->content,
             'created_at_ts' => $this->created_at->timestamp,
             'image_url' => optional($this->image)->url,
+            'count_of_comments' => $this->comments_count ?? 0,
         ];
     }
 }
