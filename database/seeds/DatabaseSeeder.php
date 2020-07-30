@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         $users = factory(\App\Models\WouchUser::class, 10)
             ->create()->pluck('id');
+        factory(\App\Models\WouchUser::class, 5)->create([
+            'active' => false,
+        ]);
 
         $posts = collect();
         for ($i = 0; $i < 100; $i++) {
