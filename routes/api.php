@@ -17,4 +17,6 @@ use App\Http\Controllers\UsersController;
 
 Route::group(['prefix' => 'v1'], function () {
     Route::get('users/active', [UsersController::class, 'active']);
+    Route::get('user/{userId}/comments', [UsersController::class, 'comments'])
+        ->where('userId', '^[1-9]\d*$');
 });
